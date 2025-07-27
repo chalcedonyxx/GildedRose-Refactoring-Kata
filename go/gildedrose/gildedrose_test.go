@@ -2,18 +2,20 @@ package gildedrose_test
 
 import (
 	"testing"
-
 	"github.com/emilybache/gildedrose-refactoring-kata/gildedrose"
 )
 
-func Test_Foo(t *testing.T) {
-	var items = []*gildedrose.Item{
-		{"foo", 0, 0},
+func TestSulfuras(t *testing.T) {
+	var testCases = []*gildedrose.Item{
+		{"Sulfuras, Hand of Ragnaros", 0, 80},
+		{"Sulfuras, Hand of Ragnaros", 10, 80},
 	}
 
-	gildedrose.UpdateQuality(items)
+	gildedrose.UpdateQuality(testCases)
 
-	if items[0].Name != "fixme" {
-		t.Errorf("Name: Expected %s but got %s ", "fixme", items[0].Name)
+	for _, testCase := range testCases {
+		if (testCase.Quality != 80){
+			t.Errorf("Sulfuras Quality: Expected %d but got %d ", 80, testCase.Quality)
+		}
 	}
 }
